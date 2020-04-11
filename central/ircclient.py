@@ -202,6 +202,8 @@ class EventTarget(events.EventTarget):
             action = 'requested a review from %s for' % ', '.join([user.login for user in evt.requested_reviewers])
         elif action == 'review_request_removed':
             action = 'dismissed a review request on'
+        elif action == 'ready_for_review':
+            action = 'marked ready for review'
         elif action == 'closed' and evt.merged:
             action = 'merged'
         self.bot.say('[%s] %s %s pull request #%d: %s (%s...%s): %s' % (
